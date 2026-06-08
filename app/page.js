@@ -19,11 +19,6 @@ const games = [
   { id: 'slide', name: '🏄 Slide', component: Slide },
 ]
 
-const apps = [
-  { id: 'joke', name: '😂 Joke Generator', href: '/joke' },
-  { id: 'todo', name: '✓ To-Do List', href: '/todo' },
-]
-
 export default function Home() {
   const [balance, setBalance] = useState(1000)
   const [selectedGame, setSelectedGame] = useState(null)
@@ -80,38 +75,17 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Games Section */}
-        <div>
-          <h2 className="text-2xl font-bold text-cyan-400 mb-4">🎮 Casino Games</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
-            {games.map(game => (
-              <button
-                key={game.id}
-                onClick={() => setSelectedGame(game.id)}
-                className="game-container hover:scale-105 transition transform duration-200 hover:bg-opacity-50 cursor-pointer p-6 text-center"
-              >
-                <div className="text-4xl mb-3">{game.name.split(' ')[0]}</div>
-                <div className="text-lg font-semibold text-cyan-300">{game.name.split(' ').slice(1).join(' ')}</div>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Apps Section */}
-        <div>
-          <h2 className="text-2xl font-bold text-purple-400 mb-4">📱 Fun Apps</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {apps.map(app => (
-              <a
-                key={app.id}
-                href={app.href}
-                className="game-container hover:scale-105 transition transform duration-200 hover:bg-opacity-50 cursor-pointer p-6 text-center"
-              >
-                <div className="text-4xl mb-3">{app.name.split(' ')[0]}</div>
-                <div className="text-lg font-semibold text-purple-300">{app.name.split(' ').slice(1).join(' ')}</div>
-              </a>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+          {games.map(game => (
+            <button
+              key={game.id}
+              onClick={() => setSelectedGame(game.id)}
+              className="game-container hover:scale-105 transition transform duration-200 hover:bg-opacity-50 cursor-pointer p-6 text-center"
+            >
+              <div className="text-4xl mb-3">{game.name.split(' ')[0]}</div>
+              <div className="text-lg font-semibold text-cyan-300">{game.name.split(' ').slice(1).join(' ')}</div>
+            </button>
+          ))}
         </div>
       </div>
     </div>
